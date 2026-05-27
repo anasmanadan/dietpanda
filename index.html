@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DietPanda - Smart Eating Made Simple</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="DietPanda provides smart, healthy, and delicious meal prep delivery. Reserve your healthy favorites today.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Phosphor Icons for modern icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#FEF2F0',
+                            100: '#FDE4DE',
+                            200: '#FBC8BC',
+                            300: '#F8AC9A',
+                            400: '#F47B60',
+                            500: '#F04E23',
+                            600: '#D84620',
+                            700: '#B43B1A',
+                            800: '#902F15',
+                            900: '#782712',
+                        },
+                        dark: '#0A0F1C',
+                        surface: '#FFFFFF',
+                        background: '#FAFCFB',
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(240, 78, 35, 0.05)',
+                        'card': '0 20px 40px -10px rgba(0,0,0,0.05), 0 0 20px rgba(240,78,35,0.03)',
+                        'glow': '0 0 25px 5px rgba(240,78,35,0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.background');
+        }
+
+        /* Modern Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        /* Refined Gradients */
+        .hero-gradient {
+            background: linear-gradient(135deg, theme('colors.brand.50') 0%, theme('colors.background') 50%, #F5F9F6 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, theme('colors.dark'), theme('colors.gray.600'));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Smooth Animations */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element-delayed {
+            animation: float 6s ease-in-out 3s infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: theme('colors.background');
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.brand.200');
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.brand.300');
+        }
+    </style>
+</head>
+
+<body class="text-gray-600 antialiased overflow-x-hidden selection:bg-brand-200 selection:text-brand-900">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-white/40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-1.5 group">
+                <img src="logo.avif" alt="DietPanda Logo" class="h-20 object-contain transition-transform">
+            </a>
+
+            <!-- Links -->
+            <div class="hidden lg:flex items-center gap-8 text-[15px] font-medium text-gray-500">
+                <a href="#dishes"
+                    class="hover:text-dark transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Menu</a>
+                <a href="#how-it-works"
+                    class="hover:text-dark transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">How
+                    it Works</a>
+                <a href="#testimonials"
+                    class="hover:text-dark transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-brand-500 after:transition-all hover:after:w-full">Community</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="flex items-center gap-4">
+                <a href="#"
+                    class="hidden sm:block text-sm font-semibold text-dark hover:text-brand-500 transition-colors">Log
+                    in</a>
+                <button
+                    class="bg-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-dark/10 hover:bg-gray-800 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-[90vh] flex items-center pt-8 pb-20 overflow-hidden hero-gradient">
+        <!-- Background Orbs -->
+        <div
+            class="absolute top-20 left-10 w-96 h-96 bg-brand-400/20 rounded-full blur-[100px] -z-10 mix-blend-multiply">
+        </div>
+        <div
+            class="absolute bottom-10 right-20 w-[30rem] h-[30rem] bg-brand-300/20 rounded-full blur-[120px] -z-10 mix-blend-multiply">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+
+            <!-- Left Content -->
+            <div
+                class="lg:col-span-6 space-y-8 relative z-10 pt-10 lg:pt-0 text-center lg:text-left flex flex-col items-center lg:items-start">
+
+                <!-- Pill -->
+                <div
+                    class="inline-flex items-center gap-2.5 bg-white border border-gray-100 rounded-full px-4 py-1.5 text-xs font-semibold text-gray-600 shadow-sm transition-all hover:shadow-md">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                    </span>
+                    <span class="tracking-wide uppercase text-[11px] font-bold">“if a panda can, so can you!”</span>
+                </div>
+
+                <!-- Headline -->
+                <h1
+                    class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold text-dark leading-[1.1] tracking-tight">
+                    More than a Meal<br>
+                    It's a
+                    <span class="text-brand-500 relative inline-block">
+                        LIFESTYLE
+                        <svg class="absolute w-full h-4 -bottom-1 lg:-bottom-2 left-0 text-brand-500/20"
+                            viewBox="0 0 100 20" preserveAspectRatio="none">
+                            <path d="M0,10 Q50,20 100,10" fill="currentColor" />
+                        </svg>
+                    </span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-gray-500 text-lg sm:text-xl max-w-lg leading-relaxed">
+                    Smart eating made simple — order wellness with one click."
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto pt-2">
+                    <button
+                        class="w-full sm:w-auto bg-brand-500 text-white px-8 py-4 rounded-full font-semibold text-[15px] shadow-glow hover:bg-brand-600 hover:shadow-lg hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                        Pre-Book Your Meal
+                        <i class="ph-bold ph-arrow-right"></i>
+                    </button>
+                    <button
+                        class="w-full sm:w-auto bg-white border border-gray-200 text-dark px-8 py-4 rounded-full font-semibold text-[15px] hover:border-gray-300 hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow">
+                        <i class="ph-bold ph-play-circle text-xl text-brand-500"></i>
+                        View Weekly Menu
+                    </button>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="flex items-center gap-5 pt-8 w-full justify-center lg:justify-start">
+                    <div class="flex -space-x-3">
+                        <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
+                            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80"
+                            alt="User">
+                        <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
+                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80"
+                            alt="User">
+                        <img class="w-10 h-10 rounded-full border-2 border-white object-cover shadow-sm"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+                            alt="User">
+                        <div
+                            class="w-10 h-10 rounded-full border-2 border-white bg-gray-100 flex items-center justify-center text-[10px] font-bold text-dark shadow-sm">
+                            +2k</div>
+                    </div>
+                    <div class="text-sm font-medium text-gray-500 leading-tight">
+                        Over <span class="font-bold text-dark">2,000+</span><br>happy customers
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content (Image & Badges) -->
+            <div class="lg:col-span-6 relative w-full flex justify-center mt-12 lg:mt-0 z-10">
+                <!-- Decorative Circle -->
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] aspect-square bg-brand-500/10 rounded-full blur-2xl -z-10">
+                </div>
+
+                <!-- Main Image Card -->
+                <div
+                    class="relative bg-white/40 p-3 sm:p-4 rounded-[2.5rem] shadow-card max-w-[440px] w-full transform lg:rotate-2 hover:rotate-0 transition-transform duration-700 border border-white/60 glass-panel">
+                    <img src="./hero.png" alt="Panda Weight Loss Bowl" class="rounded-[2rem] object-cover shadow-inner">
+                    <!-- <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+                        alt="Panda Weight Loss Bowl"
+                        class="rounded-[2rem] object-cover w-full h-[400px] sm:h-[500px] shadow-inner"> -->
+
+                    <!-- Top Badge -->
+                    <div
+                        class="floating-element absolute top-8 -left-4 sm:-left-12 glass-panel rounded-2xl p-3 shadow-card flex items-center gap-3">
+                        <div
+                            class="bg-orange-50 p-2 rounded-xl text-orange-500 text-xl flex items-center justify-center h-12 w-12 border border-orange-100">
+                            🔥
+                        </div>
+                        <div class="pr-4">
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">Weight Loss
+                            </p>
+                            <p class="text-sm font-bold text-dark">&lt; 516 Kcal</p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Badge -->
+                    <div
+                        class="floating-element-delayed absolute bottom-12 -right-4 sm:-right-8 glass-panel rounded-2xl p-3 shadow-card flex items-center gap-3">
+                        <div
+                            class="bg-brand-50 p-2 rounded-xl text-brand-500 text-xl flex items-center justify-center h-12 w-12 border border-brand-100">
+                            🥑
+                        </div>
+                        <div class="pr-4">
+                            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider mb-0.5">High Protein
+                            </p>
+                            <p class="text-sm font-bold text-dark">43g Protein</p>
+                        </div>
+                    </div>
+
+                    <!-- User Rating Mini Badge -->
+                    <div
+                        class="absolute -bottom-5 left-1/2 -translate-x-1/2 glass-panel rounded-full px-5 py-2.5 shadow-card flex items-center gap-2">
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                            <i class="ph-fill ph-star"></i>
+                        </div>
+                        <span class="text-xs font-bold text-dark">4.9/5</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- How it Works Section -->
+    <section id="how-it-works" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-brand-500 font-bold tracking-wide text-sm uppercase mb-3">Simple Process</h2>
+                <h3 class="font-heading text-3xl md:text-4xl font-bold text-dark mb-4">How DietPanda Works</h3>
+                <p class="text-gray-500 text-lg">Eating healthy has never been easier. Just follow these three simple
+                    steps.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10 relative">
+                <!-- Connecting Line for Desktop -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-gray-100 -z-10"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-brand-50 text-brand-500 flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:-translate-y-2 transition-transform duration-300 border border-brand-100">
+                        <i class="ph ph-calendar-check"></i>
+                    </div>
+                    <h4 class="font-heading text-xl font-bold text-dark mb-2">1. Choose Your Plan</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Select a meal plan that fits your lifestyle,
+                        whether it's weight loss, muscle gain, or maintenance.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-orange-50 text-orange-500 flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:-translate-y-2 transition-transform duration-300 border border-orange-100">
+                        <i class="ph ph-cooking-pot"></i>
+                    </div>
+                    <h4 class="font-heading text-xl font-bold text-dark mb-2">2. We Cook For You</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Our expert chefs prepare your meals using fresh,
+                        locally sourced, organic ingredients.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center group">
+                    <div
+                        class="w-24 h-24 rounded-3xl bg-blue-50 text-blue-500 flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:-translate-y-2 transition-transform duration-300 border border-blue-100">
+                        <i class="ph ph-truck"></i>
+                    </div>
+                    <h4 class="font-heading text-xl font-bold text-dark mb-2">3. Delivered Fresh</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Enjoy convenient door-to-door delivery. Just heat,
+                        eat, and feel amazing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Dishes Section -->
+    <section id="dishes" class="py-24 bg-background">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <h2 class="text-brand-500 font-bold tracking-wide text-sm uppercase mb-3">Our Menu</h2>
+                    <h3 class="font-heading text-3xl md:text-4xl font-bold text-dark">Popular healthy dishes</h3>
+                </div>
+                <button
+                    class="text-dark font-semibold hover:text-brand-500 transition-colors flex items-center gap-2 group">
+                    View full menu
+                    <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dish Card 1 -->
+                <div
+                    class="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                            alt="Avocado Salad"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-dark shadow-sm">
+                            $12.99
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-brand-50 text-brand-600 text-[10px] font-bold uppercase px-2 py-1 rounded-md">Vegan</span>
+                            <span
+                                class="bg-orange-50 text-orange-600 text-[10px] font-bold uppercase px-2 py-1 rounded-md">350
+                                Kcal</span>
+                        </div>
+                        <h4 class="font-heading text-lg font-bold text-dark mb-1">Green Avocado Salad</h4>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Fresh mixed greens, sliced avocado, cherry
+                            tomatoes, and a light citrus vinaigrette.</p>
+                        <button
+                            class="w-full py-2.5 rounded-xl border border-gray-200 font-semibold text-dark hover:bg-dark hover:text-white hover:border-dark transition-colors">Add
+                            to Order</button>
+                    </div>
+                </div>
+
+                <!-- Dish Card 2 -->
+                <div
+                    class="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80"
+                            alt="Grilled Salmon"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-dark shadow-sm">
+                            $15.99
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-blue-50 text-blue-600 text-[10px] font-bold uppercase px-2 py-1 rounded-md">High
+                                Protein</span>
+                            <span
+                                class="bg-orange-50 text-orange-600 text-[10px] font-bold uppercase px-2 py-1 rounded-md">420
+                                Kcal</span>
+                        </div>
+                        <h4 class="font-heading text-lg font-bold text-dark mb-1">Grilled Wild Salmon</h4>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Perfectly grilled salmon fillet served with
+                            roasted asparagus and quinoa.</p>
+                        <button
+                            class="w-full py-2.5 rounded-xl border border-gray-200 font-semibold text-dark hover:bg-dark hover:text-white hover:border-dark transition-colors">Add
+                            to Order</button>
+                    </div>
+                </div>
+
+                <!-- Dish Card 3 -->
+                <div
+                    class="bg-white rounded-3xl p-4 shadow-sm border border-gray-100 hover:shadow-card hover:-translate-y-1 transition-all duration-300 group md:hidden lg:block">
+                    <div class="relative overflow-hidden rounded-2xl mb-4 aspect-[4/3]">
+                        <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=80"
+                            alt="Chicken Bowl"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="absolute top-3 right-3 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-dark shadow-sm">
+                            $14.50
+                        </div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span
+                                class="bg-brand-50 text-brand-600 text-[10px] font-bold uppercase px-2 py-1 rounded-md">Balanced</span>
+                            <span
+                                class="bg-orange-50 text-orange-600 text-[10px] font-bold uppercase px-2 py-1 rounded-md">550
+                                Kcal</span>
+                        </div>
+                        <h4 class="font-heading text-lg font-bold text-dark mb-1">Teriyaki Chicken Bowl</h4>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Lean chicken breast with homemade teriyaki
+                            sauce over brown rice and steamed veggies.</p>
+                        <button
+                            class="w-full py-2.5 rounded-xl border border-gray-200 font-semibold text-dark hover:bg-dark hover:text-white hover:border-dark transition-colors">Add
+                            to Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section -->
+    <section class="py-24 bg-gradient-to-br from-brand-50 via-white to-brand-50 relative" id="registration">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-brand-500 font-bold tracking-wide text-sm uppercase mb-3">Join Us</h2>
+                <h3 class="font-heading text-3xl md:text-4xl font-bold text-dark mb-4">Start Your Journey</h3>
+                <p class="text-gray-500 text-lg">Fill out the form below to personalize your meal plan and begin your
+                    healthy lifestyle.</p>
+            </div>
+
+            <div class="lg:w-[40%] md:w-2/3 mx-auto bg-white rounded-3xl p-8 shadow-card border border-gray-100">
+                <form id="registrationForm" class="space-y-6">
+                    <!-- 1. Name -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="fullName" placeholder="John Doe"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+
+                    <!-- 2. Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+
+                    <!-- 3. Phone Number -->
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 000-0000"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+
+                    <!-- 4. Age (Number) -->
+                    <div>
+                        <label for="age" class="block text-sm font-semibold text-gray-700 mb-2">Age</label>
+                        <input type="number" id="age" placeholder="25" min="16" max="120"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+
+                    <!-- 5. Dietary Goal (Select) -->
+                    <div>
+                        <label for="goal" class="block text-sm font-semibold text-gray-700 mb-2">Primary Goal</label>
+                        <select id="goal"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 appearance-none">
+                            <option value="">Select a goal</option>
+                            <option value="weight_loss">Weight Loss</option>
+                            <option value="muscle_gain">Muscle Gain</option>
+                            <option value="maintenance">Maintenance</option>
+                            <option value="health">Overall Health</option>
+                        </select>
+                    </div>
+
+                    <!-- 6. Activity Level (Select) -->
+                    <div>
+                        <label for="activity" class="block text-sm font-semibold text-gray-700 mb-2">Activity
+                            Level</label>
+                        <select id="activity"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 appearance-none">
+                            <option value="">Select activity level</option>
+                            <option value="sedentary">Sedentary</option>
+                            <option value="light">Lightly Active</option>
+                            <option value="moderate">Moderately Active</option>
+                            <option value="very">Very Active</option>
+                        </select>
+                    </div>
+
+                    <!-- 7. Allergies (Text) -->
+                    <div>
+                        <label for="allergies" class="block text-sm font-semibold text-gray-700 mb-2">Allergies /
+                            Restrictions</label>
+                        <input type="text" id="allergies" placeholder="e.g. Peanuts, Gluten"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+
+                    <!-- 8. Delivery Address (Textarea) -->
+                    <div>
+                        <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">Delivery
+                            Address</label>
+                        <textarea id="address" rows="3" placeholder="Enter your full address"
+                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 resize-none"></textarea>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-brand-500 text-white px-8 py-4 rounded-xl font-bold text-[15px] shadow-glow hover:bg-brand-600 hover:-translate-y-1 transition-all mt-4">
+                        Submit Application
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="bg-dark rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10">
+                <!-- Decorative Elements -->
+                <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-500 rounded-full blur-[80px] opacity-40">
+                </div>
+                <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-500 rounded-full blur-[80px] opacity-20">
+                </div>
+
+                <div class="relative z-10 max-w-xl text-center md:text-left">
+                    <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Ready to transform your
+                        diet?</h3>
+                    <p class="text-gray-400 text-lg">Join DietPanda today and get 20% off your first week of meal prep
+                        delivery.</p>
+                </div>
+
+                <div class="relative z-10 w-full md:w-auto">
+                    <button
+                        class="w-full md:w-auto bg-brand-500 text-white px-8 py-4 rounded-full font-semibold text-[15px] shadow-glow hover:bg-brand-400 hover:shadow-lg hover:-translate-y-1 transition-all whitespace-nowrap">
+                        Claim Your 20% Off
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-12">
+                <div class="col-span-2 lg:col-span-2">
+                    <a href="#" class="flex items-center gap-1.5 mb-4">
+                        <img src="logo.avif" alt="DietPanda Logo" class="h-14 object-contain">
+                    </a>
+                    <p class="text-gray-500 text-sm max-w-sm mb-6">Smart eating made simple. We deliver fresh, healthy,
+                        and delicious meals right to your doorstep.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-brand-50 hover:text-brand-500 transition-colors"><i
+                                class="ph-fill ph-twitter-logo text-lg"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-brand-50 hover:text-brand-500 transition-colors"><i
+                                class="ph-fill ph-instagram-logo text-lg"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-brand-50 hover:text-brand-500 transition-colors"><i
+                                class="ph-fill ph-facebook-logo text-lg"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-dark mb-4">Company</h5>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-dark mb-4">Menu</h5>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Weight Loss</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Muscle Gain</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Vegan</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Keto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-dark mb-4">Legal</h5>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-brand-500 transition-colors">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-sm text-gray-400">© 2026 DietPanda. All rights reserved.</p>
+                <div class="flex items-center gap-2 text-sm text-gray-400">
+                    Made with <i class="ph-fill ph-heart text-brand-500"></i> for healthy living
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const age = document.getElementById('age').value;
+            const goal = document.getElementById('goal').value;
+            const activity = document.getElementById('activity').value;
+            const allergies = document.getElementById('allergies').value || 'None';
+            const address = document.getElementById('address').value;
+
+            const message = `*New DietPanda Registration*\n\n` +
+                `*Name:* ${fullName}\n` +
+                `*Email:* ${email}\n` +
+                `*Phone:* ${phone}\n` +
+                `*Age:* ${age}\n` +
+                `*Goal:* ${goal}\n` +
+                `*Activity Level:* ${activity}\n` +
+                `*Allergies:* ${allergies}\n` +
+                `*Address:* ${address}`;
+
+            const whatsappNumber = '+919809181562';
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        });
+    </script>
+</body>
+
+</html>
