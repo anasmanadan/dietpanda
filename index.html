@@ -474,73 +474,72 @@
                 <form id="registrationForm" class="space-y-6">
                     <!-- 1. Name -->
                     <div>
-                        <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
-                        <input type="text" id="fullName" placeholder="John Doe"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                        <label for="fullName" class="block text-sm font-semibold text-gray-700 mb-2">1. Name</label>
+                        <input type="text" id="fullName" placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+                    
+                    <!-- 2. Age -->
+                    <div>
+                        <label for="age" class="block text-sm font-semibold text-gray-700 mb-2">2. Age</label>
+                        <input type="number" id="age" placeholder="25" min="0" max="120" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+                    
+                    <!-- 3. Weight -->
+                    <div>
+                        <label for="weight" class="block text-sm font-semibold text-gray-700 mb-2">3. Weight (kg/lbs)</label>
+                        <input type="text" id="weight" placeholder="e.g. 70 kg" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+                    
+                    <!-- 4. Height -->
+                    <div>
+                        <label for="height" class="block text-sm font-semibold text-gray-700 mb-2">4. Height (cm/ft)</label>
+                        <input type="text" id="height" placeholder="e.g. 175 cm" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
                     </div>
 
-                    <!-- 2. Email -->
+                    <!-- 5. Exercise history -->
                     <div>
-                        <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-                        <input type="email" id="email" placeholder="john@example.com"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                        <label for="exerciseHistory" class="block text-sm font-semibold text-gray-700 mb-2">5. Exercise History</label>
+                        <select id="exerciseHistory" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 appearance-none">
+                            <option value="">Select your exercise history</option>
+                            <option value="beginner">Beginner (Rarely exercise)</option>
+                            <option value="intermediate">Intermediate (1-3 times/week)</option>
+                            <option value="advanced">Advanced (4+ times/week)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 6. Allergies -->
+                    <div>
+                        <label for="allergies" class="block text-sm font-semibold text-gray-700 mb-2">6. Allergies</label>
+                        <input type="text" id="allergies" placeholder="e.g. Peanuts, Gluten, Dairy (or None)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+                    
+                    <!-- 7. Existing Health Issues -->
+                    <div>
+                        <label for="healthIssues" class="block text-sm font-semibold text-gray-700 mb-2">7. Existing Health Issues</label>
+                        <input type="text" id="healthIssues" placeholder="e.g. Diabetes, Hypertension (or None)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
+                    </div>
+                    
+                    <!-- 8. List any current medications -->
+                    <div>
+                        <label for="medications" class="block text-sm font-semibold text-gray-700 mb-2">8. List any current medications</label>
+                        <input type="text" id="medications" placeholder="List medications (or None)" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
                     </div>
 
-                    <!-- 3. Phone Number -->
+                    <!-- 9. Veg, Non-veg, or Both -->
                     <div>
-                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="+1 (555) 000-0000"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
-                    </div>
-
-                    <!-- 4. Age (Number) -->
-                    <div>
-                        <label for="age" class="block text-sm font-semibold text-gray-700 mb-2">Age</label>
-                        <input type="number" id="age" placeholder="25" min="16" max="120"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
-                    </div>
-
-                    <!-- 5. Dietary Goal (Select) -->
-                    <div>
-                        <label for="goal" class="block text-sm font-semibold text-gray-700 mb-2">Primary Goal</label>
-                        <select id="goal"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 appearance-none">
-                            <option value="">Select a goal</option>
-                            <option value="weight_loss">Weight Loss</option>
-                            <option value="muscle_gain">Muscle Gain</option>
-                            <option value="maintenance">Maintenance</option>
-                            <option value="health">Overall Health</option>
+                        <label for="dietPreference" class="block text-sm font-semibold text-gray-700 mb-2">9. Diet Preference</label>
+                        <select id="dietPreference" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 appearance-none">
+                            <option value="">Select preference</option>
+                            <option value="veg">Veg</option>
+                            <option value="non-veg">Non-veg</option>
+                            <option value="both">Both</option>
                         </select>
                     </div>
 
-                    <!-- 6. Activity Level (Select) -->
+                    <!-- 10. Any specific remarks -->
                     <div>
-                        <label for="activity" class="block text-sm font-semibold text-gray-700 mb-2">Activity
-                            Level</label>
-                        <select id="activity"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 appearance-none">
-                            <option value="">Select activity level</option>
-                            <option value="sedentary">Sedentary</option>
-                            <option value="light">Lightly Active</option>
-                            <option value="moderate">Moderately Active</option>
-                            <option value="very">Very Active</option>
-                        </select>
-                    </div>
-
-                    <!-- 7. Allergies (Text) -->
-                    <div>
-                        <label for="allergies" class="block text-sm font-semibold text-gray-700 mb-2">Allergies /
-                            Restrictions</label>
-                        <input type="text" id="allergies" placeholder="e.g. Peanuts, Gluten"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50">
-                    </div>
-
-                    <!-- 8. Delivery Address (Textarea) -->
-                    <div>
-                        <label for="address" class="block text-sm font-semibold text-gray-700 mb-2">Delivery
-                            Address</label>
-                        <textarea id="address" rows="3" placeholder="Enter your full address"
-                            class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 resize-none"></textarea>
+                        <label for="remarks" class="block text-sm font-semibold text-gray-700 mb-2">10. Any specific remarks</label>
+                        <textarea id="remarks" rows="3" placeholder="Any additional notes?" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all text-gray-600 bg-gray-50/50 resize-none"></textarea>
                     </div>
 
                     <button type="submit"
@@ -647,23 +646,27 @@
             e.preventDefault();
 
             const fullName = document.getElementById('fullName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
             const age = document.getElementById('age').value;
-            const goal = document.getElementById('goal').value;
-            const activity = document.getElementById('activity').value;
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const exerciseHistory = document.getElementById('exerciseHistory').value;
             const allergies = document.getElementById('allergies').value || 'None';
-            const address = document.getElementById('address').value;
+            const healthIssues = document.getElementById('healthIssues').value || 'None';
+            const medications = document.getElementById('medications').value || 'None';
+            const dietPreference = document.getElementById('dietPreference').value;
+            const remarks = document.getElementById('remarks').value || 'None';
 
             const message = `*New DietPanda Registration*\n\n` +
-                `*Name:* ${fullName}\n` +
-                `*Email:* ${email}\n` +
-                `*Phone:* ${phone}\n` +
-                `*Age:* ${age}\n` +
-                `*Goal:* ${goal}\n` +
-                `*Activity Level:* ${activity}\n` +
-                `*Allergies:* ${allergies}\n` +
-                `*Address:* ${address}`;
+                `*1. Name:* ${fullName}\n` +
+                `*2. Age:* ${age}\n` +
+                `*3. Weight:* ${weight}\n` +
+                `*4. Height:* ${height}\n` +
+                `*5. Exercise History:* ${exerciseHistory}\n` +
+                `*6. Allergies:* ${allergies}\n` +
+                `*7. Health Issues:* ${healthIssues}\n` +
+                `*8. Medications:* ${medications}\n` +
+                `*9. Preference:* ${dietPreference}\n` +
+                `*10. Remarks:* ${remarks}`;
 
             const whatsappNumber = '+919809181562';
             const encodedMessage = encodeURIComponent(message);
